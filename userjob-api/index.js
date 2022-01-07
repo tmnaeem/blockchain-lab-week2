@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express")
 require("./db/mongoose")
 const Job = require("./models/job")
+const cors = require("cors");
 
 /**
  * @constants
@@ -17,7 +18,10 @@ const bodyParser = require("body-parser")
 
 console.log("DDDDD", process.env.DATABASE_URL);
 console.log(process.env.DATABASE_URL);
-
+var corsOptions = {
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000"
+  };
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

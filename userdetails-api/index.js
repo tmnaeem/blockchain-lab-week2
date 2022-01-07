@@ -14,9 +14,11 @@ const PORT = 8447;
 
 const app = express();
 app.use(express.json())
-app.use(cors());
 const bodyParser = require("body-parser")
-
+var corsOptions = {
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000"
+  };
+app.use(cors(corsOptions));
 console.log("DDDDD", process.env.DATABASE_URL);
 console.log(process.env.DATABASE_URL);
 

@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express")
 require("./db/mongoose")
 const Edu = require("./models/edu")
+const cors = require("cors");
 
 /**
  * @constants
@@ -14,7 +15,10 @@ const PORT = 8445;
 const app = express();
 app.use(express.json())
 const bodyParser = require("body-parser")
-
+var corsOptions = {
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000"
+  };
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
