@@ -26,6 +26,18 @@ console.log(process.env.DATABASE_URL);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get("/user", async (req, res) => {
+    try {
+        res.status(200).send({
+            name: 'Lando',
+            username: " lando12345",
+            email: 'lando@lunixcooldev.com',
+        })
+    } catch(error) {
+        res.status(500).send(error)
+    }
+});
+
 /**
  * @getAddress endpoint - fetch data from our mongoDB 
  */

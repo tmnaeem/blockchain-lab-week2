@@ -6,9 +6,9 @@ export const AddressList = () => {
 
     /**
      * @fetchData gets the list addresses in the database
-     */
+    */
     const fetchData = async () => {
-        const BASE_URL  = 'http://localhost:8485';
+        const BASE_URL  = 'http://localhost:8446';
         try {
             const response = await axios.get(`${BASE_URL}`)
             setData(response.data)
@@ -23,7 +23,7 @@ export const AddressList = () => {
 
     return (
         <>
-             <section className="section is-paddingless-horizontal">
+            <section className="section is-paddingless-horizontal">
                 <div className="container grid is-large">
                     <div className="firstsections">
                         <div className="content">
