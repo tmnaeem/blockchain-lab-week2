@@ -13,7 +13,7 @@ export const Occupation = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const BASE_URL  = 'http://localhost:3000';
+            const BASE_URL  = 'http://localhost:8444';
             setLoading(true);
             const { data } = await axios.post(`${BASE_URL}`, {
                 skill, position, experience

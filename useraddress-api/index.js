@@ -9,7 +9,7 @@ const Address = require("./models/address")
  * @setHostAt "0.0.0.0" instead or localhost
  */
 const HOST = "0.0.0.0";
-const PORT = 8485;
+const PORT = 8446;
 
 const app = express();
 app.use(express.json())

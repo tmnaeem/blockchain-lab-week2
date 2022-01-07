@@ -9,7 +9,7 @@ const Edu = require("./models/edu")
  * @setHostAt "0.0.0.0" instead or localhost
  */
 const HOST = "0.0.0.0";
-const PORT = 8485;
+const PORT = 8445;
 
 const app = express();
 app.use(express.json())
@@ -39,7 +39,7 @@ app.post('/', async (req, res) => {
     const edu = new Edu({
         name: req.body.name,
         location: req.body.location,
-        field: req.body.email
+        field: req.body.field
     })
     try {
       await edu.save()

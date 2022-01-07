@@ -13,11 +13,11 @@ export const Education = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const BASE_URL  = 'http://localhost:3000';
+            const BASE_URL  = 'http://localhost:8445';
             setLoading(true);
             const { data } = await axios.post(`${BASE_URL}`, {
                 name, location, field
-            });
+            }); 
 
             console.log("name res => ", data);
 
@@ -67,7 +67,7 @@ export const Education = () => {
                                             onChange={(e) => setLocation(e.target.value)}
                                         />
                                         <input 
-                                            type="email"
+                                            type="text"
                                             className="input is-medium mt-5 mb-5"
                                             value={field}
                                             placeholder="Enter your Field of Study "

@@ -25,10 +25,11 @@ This application was bootstrapped using Create-React-App
 - Axios
 - react-router-dom
 - Bulma 
+- Cors
 
-## User Address API  | User Details API | User Education API | User Jobs/Occupation API
+## User Address API service | User Details API service | User Education API service | User Jobs/Occupation API service
 
-This simple server was created using the simple_server image from our previous session. 
+This simple server express-based projects were created using the simple_server image from our previous session. 
 
 - Express
 - Mongoose
