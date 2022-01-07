@@ -3,6 +3,7 @@ import  {Form, Icon, Button} from 'react-bulma-components'
 import 'bulma/css/bulma.min.css';
 import axios from 'axios';
 import { Tab } from '../components/Tab';
+import { AddressList } from './AddressList';
 
 export const Address = () => {
     const [city, setCity] = React.useState<string>("")
@@ -82,6 +83,7 @@ export const Address = () => {
                     </div>
                 </div>
             </section>
+            <AddressList />
         </>
     )
 }

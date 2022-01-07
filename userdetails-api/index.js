@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express")
 require("./db/mongoose")
 const User = require("./models/user")
+const cors = require("cors");
 
 /**
  * @constants
@@ -13,6 +14,7 @@ const PORT = 8447;
 
 const app = express();
 app.use(express.json())
+app.use(cors());
 const bodyParser = require("body-parser")
 
 console.log("DDDDD", process.env.DATABASE_URL);
