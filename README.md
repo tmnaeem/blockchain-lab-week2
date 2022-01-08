@@ -47,6 +47,12 @@ Please note: this project use the npm package manager to install all our depende
 4. Copy the URL to clone it in your computer
 5. After succefully cloning it, wait for further instructions 
 
+## checkout "development" branch
+
+- $`git checkout -b development`
+- $`git pull origin development`
+
+
 
 ### Assessment Exercise
 
