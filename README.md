@@ -65,5 +65,6 @@ We are going to apply the knowledge we have gained from Week 1 modules to write 
 2. There are 5 applications 1 frontend web application and 4 backend server api
 3. Write detailed development enviroment docker-compose commands following the specifications of docker compose version "3.8" 
 4. Run `docker-compose build` then 'docker-compose up` to test and run a multi-container services
+5. NOTE: the port number of each of your API's needs to be updated on the frontend codebase: for example, if we map the host and container port for useraddress-api to "4000:4000", inside the frontend>src>pages>Address.tsx file, you need to update the BASE_URL to `http:\\localhost:4000`. Do this for all the API's port number
 5. Test if you're able to submit formdata
 6. Assessment completion 
