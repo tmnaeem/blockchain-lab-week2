@@ -1,0 +1,118 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend-app
+    ports: 
+      - 3000:3000
+    build: 
+      context: ./
+      dockerfile: ./frontend/Dockerfile
+    image: frontend-app-ex
+    restart: unless-stopped
+    networks:
+      - lab-exe-tier
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  useraddress:
+    container_name: user-address-api
+    ports: 
+      - 8446:8446
+    build: 
+      context: ./
+      dockerfile: ./useraddress-api/Dockerfile
+    image: user-address-api-ex
+    restart: unless-stopped
+    networks:
+      - lab-exe-tier
+    volumes:
+      - ./useraddress-api:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  userdetails:
+    container_name: user-details-api
+    ports: 
+      - 8447:8447
+    build: 
+      context: ./
+      dockerfile: ./userdetails-api/Dockerfile
+    image: user-details-api-ex
+    restart: unless-stopped
+    networks:
+      - lab-exe-tier
+    volumes:
+      - ./userdetails-api/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  useredu:
+    container_name: user-edu-api
+    ports: 
+      - 8445:8445
+    build: 
+      context: ./
+      dockerfile: ./useredu-api/Dockerfile
+    image: user-edu-api-ex
+    restart: unless-stopped
+    networks:
+      - lab-exe-tier
+    volumes:
+      - ./useredu-api/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  userjob:
+    container_name: user-job-api
+    ports: 
+      - 8444:8444
+    build: 
+      context: ./
+      dockerfile: ./userjob-api/Dockerfile
+    image: user-job-api-ex
+    restart: unless-stopped
+    networks:
+      - lab-exe-tier
+    volumes:
+      - ./userjob-api/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+      
+  mongo:
+    image: mongo:4.4-bionic
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    # env_file: .env
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME:$MONGO_INITDB_ROOT_USERNAME
+    #   - MONGO_INITDB_ROOT_PASSWORD:$MONGO_INITDB_ROOT_PASSWORD
+    networks:
+      - lab-exe-tier
+    volumes:
+      - lab-exe-data:/data/db
+
+volumes:
+  lab-exe-data:
+    driver: local
+
+networks:
+  lab-exe-tier:
+    driver: bridge
